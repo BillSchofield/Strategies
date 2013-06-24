@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Box.h"
+#import "Box1.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
@@ -29,9 +29,9 @@ enum
 };
 
 
-static const Vector startingPoint(0.0f, 0.0f, -40.0f);
-Box* box1 = Box::createLoopingBox(startingPoint, 5.0f);
-Box* box2 = Box::createOscilatingBox(startingPoint, 1.0f);
+static const Vector startingPoint(-10.0f, 10.0f, -40.0f);
+Box1* box1 = Box1::createLoopingBox(startingPoint, 5.0f);
+Box1* box2 = Box1::createOscilatingBox(startingPoint, 5.0f);
 
 
 
@@ -218,7 +218,7 @@ GLfloat gCubeVertexData[216] =
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     glBindVertexArrayOES(_vertexArray);

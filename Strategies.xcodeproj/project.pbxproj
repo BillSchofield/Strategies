@@ -23,7 +23,7 @@
 		D687990217760F65002CACAA /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D687990117760F65002CACAA /* Shader.fsh */; };
 		D687990417760F65002CACAA /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D687990317760F65002CACAA /* Shader.vsh */; };
 		D687990717760F65002CACAA /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D687990617760F65002CACAA /* ViewController.mm */; };
-		D687990F1776120D002CACAA /* Box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D687990D1776120D002CACAA /* Box.cpp */; };
+		D687990F1776120D002CACAA /* Box1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D687990D1776120D002CACAA /* Box1.cpp */; };
 		D687991217762776002CACAA /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D687991117762776002CACAA /* Vector.cpp */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +49,8 @@
 		D687990317760F65002CACAA /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
 		D687990517760F65002CACAA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D687990617760F65002CACAA /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
-		D687990D1776120D002CACAA /* Box.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box.cpp; sourceTree = "<group>"; };
-		D687990E1776120D002CACAA /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box.h; sourceTree = "<group>"; };
+		D687990D1776120D002CACAA /* Box1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box1.cpp; sourceTree = "<group>"; };
+		D687990E1776120D002CACAA /* Box1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box1.h; sourceTree = "<group>"; };
 		D6879910177613E8002CACAA /* Vector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
 		D687991117762776002CACAA /* Vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,8 +112,8 @@
 				D687990517760F65002CACAA /* ViewController.h */,
 				D687990617760F65002CACAA /* ViewController.mm */,
 				D68798EA17760F65002CACAA /* Supporting Files */,
-				D687990D1776120D002CACAA /* Box.cpp */,
-				D687990E1776120D002CACAA /* Box.h */,
+				D687990D1776120D002CACAA /* Box1.cpp */,
+				D687990E1776120D002CACAA /* Box1.h */,
 				D6879910177613E8002CACAA /* Vector.h */,
 				D687991117762776002CACAA /* Vector.cpp */,
 			);
@@ -206,7 +206,7 @@
 				D68798F017760F65002CACAA /* main.m in Sources */,
 				D68798F417760F65002CACAA /* AppDelegate.mm in Sources */,
 				D687990717760F65002CACAA /* ViewController.mm in Sources */,
-				D687990F1776120D002CACAA /* Box.cpp in Sources */,
+				D687990F1776120D002CACAA /* Box1.cpp in Sources */,
 				D687991217762776002CACAA /* Vector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +340,7 @@
 				D687990C17760F65002CACAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
