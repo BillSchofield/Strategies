@@ -1,17 +1,15 @@
 #include "Box1.h"
-
 #include <math.h>
 
-
-
-Box1* Box1::createLoopingBox(const Vector& center, float radius){
+Box1* Box1::createLoopingBox(const Vector& center, float radius)
+{
     return new Box1(center, MovementStrategy::Loop, radius);
 }
 
-Box1* Box1::createOscilatingBox(const Vector& center, float radius){
+Box1* Box1::createOscilatingBox(const Vector& center, float radius)
+{
     return new Box1(center, MovementStrategy::Oscillate, radius);
 }
-
 
 Box1::Box1(const Vector& position, MovementStrategy movement, float radius)
 :position(position)
@@ -56,6 +54,7 @@ void Box1::update(float deltaTime)
     position += offset;
 }
 
-const Vector& Box1::currentPosition(){
+Vector Box1::currentPosition()
+{
     return position;
 }

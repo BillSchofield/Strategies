@@ -27,9 +27,10 @@
 		D687991217762776002CACAA /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D687991117762776002CACAA /* Vector.cpp */; };
 		D6A29A411777DE2900BD5C54 /* Box2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6A29A3B1777DE2900BD5C54 /* Box2.cpp */; };
 		D6A29A421777DE2900BD5C54 /* Box3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6A29A3D1777DE2900BD5C54 /* Box3.cpp */; };
-		D6A29A431777DE2900BD5C54 /* Box4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6A29A3F1777DE2900BD5C54 /* Box4.cpp */; };
 		D6A29A4A1778B8B200BD5C54 /* LoopMovementDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6A29A481778B8B200BD5C54 /* LoopMovementDelegate.cpp */; };
 		D6A29A4D1778BC4500BD5C54 /* OscillateMovementDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6A29A4B1778BC4500BD5C54 /* OscillateMovementDelegate.cpp */; };
+		D6A29A501778C69400BD5C54 /* OscillateMovementStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6A29A4F1778C69400BD5C54 /* OscillateMovementStrategy.cpp */; };
+		D6A29A531778C6AC00BD5C54 /* LoopMovementStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6A29A521778C6AC00BD5C54 /* LoopMovementStrategy.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,12 +63,15 @@
 		D6A29A3C1777DE2900BD5C54 /* Box2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2.h; sourceTree = "<group>"; };
 		D6A29A3D1777DE2900BD5C54 /* Box3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Box3.cpp; path = Strategies/Box3.cpp; sourceTree = "<group>"; };
 		D6A29A3E1777DE2900BD5C54 /* Box3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Box3.h; path = Strategies/Box3.h; sourceTree = "<group>"; };
-		D6A29A3F1777DE2900BD5C54 /* Box4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box4.cpp; sourceTree = "<group>"; };
-		D6A29A401777DE2900BD5C54 /* Box4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box4.h; sourceTree = "<group>"; };
 		D6A29A481778B8B200BD5C54 /* LoopMovementDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoopMovementDelegate.cpp; sourceTree = "<group>"; };
 		D6A29A491778B8B200BD5C54 /* LoopMovementDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopMovementDelegate.h; sourceTree = "<group>"; };
 		D6A29A4B1778BC4500BD5C54 /* OscillateMovementDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscillateMovementDelegate.cpp; sourceTree = "<group>"; };
 		D6A29A4C1778BC4500BD5C54 /* OscillateMovementDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscillateMovementDelegate.h; sourceTree = "<group>"; };
+		D6A29A4E1778C68500BD5C54 /* OscillateMovementStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscillateMovementStrategy.h; sourceTree = "<group>"; };
+		D6A29A4F1778C69400BD5C54 /* OscillateMovementStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscillateMovementStrategy.cpp; sourceTree = "<group>"; };
+		D6A29A511778C69F00BD5C54 /* LoopMovementStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopMovementStrategy.h; sourceTree = "<group>"; };
+		D6A29A521778C6AC00BD5C54 /* LoopMovementStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoopMovementStrategy.cpp; sourceTree = "<group>"; };
+		D6A29A541778C81B00BD5C54 /* MovementStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovementStrategy.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +125,6 @@
 				D6A29A441778B7FF00BD5C54 /* Example1 */,
 				D6A29A451778B81C00BD5C54 /* Example2 */,
 				D6A29A461778B84200BD5C54 /* Example3 */,
-				D6A29A471778B87000BD5C54 /* Example4 */,
 				D687991117762776002CACAA /* Vector.cpp */,
 				D6879910177613E8002CACAA /* Vector.h */,
 				D68798F217760F65002CACAA /* AppDelegate.h */,
@@ -178,18 +181,14 @@
 			children = (
 				D6A29A3D1777DE2900BD5C54 /* Box3.cpp */,
 				D6A29A3E1777DE2900BD5C54 /* Box3.h */,
+				D6A29A541778C81B00BD5C54 /* MovementStrategy.h */,
+				D6A29A521778C6AC00BD5C54 /* LoopMovementStrategy.cpp */,
+				D6A29A511778C69F00BD5C54 /* LoopMovementStrategy.h */,
+				D6A29A4F1778C69400BD5C54 /* OscillateMovementStrategy.cpp */,
+				D6A29A4E1778C68500BD5C54 /* OscillateMovementStrategy.h */,
 			);
 			name = Example3;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		D6A29A471778B87000BD5C54 /* Example4 */ = {
-			isa = PBXGroup;
-			children = (
-				D6A29A3F1777DE2900BD5C54 /* Box4.cpp */,
-				D6A29A401777DE2900BD5C54 /* Box4.h */,
-			);
-			name = Example4;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,9 +267,10 @@
 				D687991217762776002CACAA /* Vector.cpp in Sources */,
 				D6A29A411777DE2900BD5C54 /* Box2.cpp in Sources */,
 				D6A29A421777DE2900BD5C54 /* Box3.cpp in Sources */,
-				D6A29A431777DE2900BD5C54 /* Box4.cpp in Sources */,
 				D6A29A4A1778B8B200BD5C54 /* LoopMovementDelegate.cpp in Sources */,
 				D6A29A4D1778BC4500BD5C54 /* OscillateMovementDelegate.cpp in Sources */,
+				D6A29A501778C69400BD5C54 /* OscillateMovementStrategy.cpp in Sources */,
+				D6A29A531778C6AC00BD5C54 /* LoopMovementStrategy.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

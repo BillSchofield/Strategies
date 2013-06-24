@@ -1,17 +1,15 @@
 #include "Box2.h"
-
 #include <math.h>
 
-
-
-Box2* Box2::createLoopingBox(const Vector& center, float radius){
+Box2* Box2::createLoopingBox(const Vector& center, float radius)
+{
     return new Box2(center, MovementStrategy::Loop, radius);
 }
 
-Box2* Box2::createOscilatingBox(const Vector& center, float radius){
+Box2* Box2::createOscilatingBox(const Vector& center, float radius)
+{
     return new Box2(center, MovementStrategy::Oscillate, radius);
 }
-
 
 Box2::Box2(const Vector& position, MovementStrategy movement, float radius)
 :loopMovement(position, radius)
@@ -33,7 +31,8 @@ void Box2::update(float deltaTime)
     }
 }
 
-Vector Box2::currentPosition(){
+Vector Box2::currentPosition()
+{
     Vector position = Vector::Zero;
     switch(movementStrategy)
     {
