@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Box.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
@@ -26,6 +27,13 @@ enum
     ATTRIB_NORMAL,
     NUM_ATTRIBUTES
 };
+
+
+static const Vector startingPoint(0.0f, 0.0f, -40.0f);
+Box* box1 = Box::createLoopingBox(startingPoint, 5.0f);
+Box* box2 = Box::createOscilatingBox(startingPoint, 1.0f);
+
+
 
 GLfloat gCubeVertexData[216] = 
 {
@@ -85,7 +93,8 @@ GLfloat gCubeVertexData[216] =
     GLuint _vertexBuffer;
 }
 @property (strong, nonatomic) EAGLContext *context;
-@property (strong, nonatomic) GLKBaseEffect *effect;
+@property (strong, nonatomic) GLKBaseEffect *effect1;
+@property (strong, nonatomic) GLKBaseEffect *effect2;
 
 - (void)setupGL;
 - (void)tearDownGL;
@@ -148,9 +157,13 @@ GLfloat gCubeVertexData[216] =
     
     [self loadShaders];
     
-    self.effect = [[GLKBaseEffect alloc] init];
-    self.effect.light0.enabled = GL_TRUE;
-    self.effect.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
+    self.effect1 = [[GLKBaseEffect alloc] init];
+    self.effect1.light0.enabled = GL_TRUE;
+    self.effect1.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
+    
+    self.effect2 = [[GLKBaseEffect alloc] init];
+    self.effect2.light0.enabled = GL_TRUE;
+    self.effect2.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
     
     glEnable(GL_DEPTH_TEST);
     
@@ -176,7 +189,8 @@ GLfloat gCubeVertexData[216] =
     glDeleteBuffers(1, &_vertexBuffer);
     glDeleteVertexArraysOES(1, &_vertexArray);
     
-    self.effect = nil;
+    self.effect1 = nil;
+    self.effect2 = nil;
     
     if (_program) {
         glDeleteProgram(_program);
@@ -191,28 +205,15 @@ GLfloat gCubeVertexData[216] =
     float aspect = fabsf(self.view.bounds.size.width / self.view.bounds.size.height);
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65.0f), aspect, 0.1f, 100.0f);
     
-    self.effect.transform.projectionMatrix = projectionMatrix;
+    self.effect1.transform.projectionMatrix = projectionMatrix;
+    self.effect2.transform.projectionMatrix = projectionMatrix;
     
-    GLKMatrix4 baseModelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -4.0f);
-    baseModelViewMatrix = GLKMatrix4Rotate(baseModelViewMatrix, _rotation, 0.0f, 1.0f, 0.0f);
-    
-    // Compute the model view matrix for the object rendered with GLKit
-    GLKMatrix4 modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -1.5f);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, _rotation, 1.0f, 1.0f, 1.0f);
-    modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
-    
-    self.effect.transform.modelviewMatrix = modelViewMatrix;
-    
-    // Compute the model view matrix for the object rendered with ES2
-    modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, 1.5f);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, _rotation, 1.0f, 1.0f, 1.0f);
-    modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
-    
-    _normalMatrix = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(modelViewMatrix), NULL);
-    
-    _modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
-    
-    _rotation += self.timeSinceLastUpdate * 0.5f;
+    box1->update(self.timeSinceLastUpdate);
+    self.effect1.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box1->currentPosition().x, box1->currentPosition().y, box1->currentPosition().z);
+
+    box2->update(self.timeSinceLastUpdate);
+    self.effect2.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box2->currentPosition().x, box2->currentPosition().y, box2->currentPosition().z);
+
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
@@ -223,17 +224,12 @@ GLfloat gCubeVertexData[216] =
     glBindVertexArrayOES(_vertexArray);
     
     // Render the object with GLKit
-    [self.effect prepareToDraw];
-    
+    [self.effect1 prepareToDraw];
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    [self.effect2 prepareToDraw];
     glDrawArrays(GL_TRIANGLES, 0, 36);
     
-    // Render the object again with ES2
-    glUseProgram(_program);
-    
-    glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _modelViewProjectionMatrix.m);
-    glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
-    
-    glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
 #pragma mark -  OpenGL ES 2 shader compilation

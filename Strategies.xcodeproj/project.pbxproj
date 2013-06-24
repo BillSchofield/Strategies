@@ -14,7 +14,7 @@
 		D68798E817760F65002CACAA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68798E717760F65002CACAA /* OpenGLES.framework */; };
 		D68798EE17760F65002CACAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D68798EC17760F65002CACAA /* InfoPlist.strings */; };
 		D68798F017760F65002CACAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D68798EF17760F65002CACAA /* main.m */; };
-		D68798F417760F65002CACAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D68798F317760F65002CACAA /* AppDelegate.m */; };
+		D68798F417760F65002CACAA /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D68798F317760F65002CACAA /* AppDelegate.mm */; };
 		D68798F617760F65002CACAA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D68798F517760F65002CACAA /* Default.png */; };
 		D68798F817760F65002CACAA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D68798F717760F65002CACAA /* Default@2x.png */; };
 		D68798FA17760F65002CACAA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D68798F917760F65002CACAA /* Default-568h@2x.png */; };
@@ -22,7 +22,9 @@
 		D687990017760F65002CACAA /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68798FE17760F65002CACAA /* MainStoryboard_iPad.storyboard */; };
 		D687990217760F65002CACAA /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D687990117760F65002CACAA /* Shader.fsh */; };
 		D687990417760F65002CACAA /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D687990317760F65002CACAA /* Shader.vsh */; };
-		D687990717760F65002CACAA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D687990617760F65002CACAA /* ViewController.m */; };
+		D687990717760F65002CACAA /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D687990617760F65002CACAA /* ViewController.mm */; };
+		D687990F1776120D002CACAA /* Box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D687990D1776120D002CACAA /* Box.cpp */; };
+		D687991217762776002CACAA /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D687991117762776002CACAA /* Vector.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +39,7 @@
 		D68798EF17760F65002CACAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D68798F117760F65002CACAA /* Strategies-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Strategies-Prefix.pch"; sourceTree = "<group>"; };
 		D68798F217760F65002CACAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D68798F317760F65002CACAA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D68798F317760F65002CACAA /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		D68798F517760F65002CACAA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D68798F717760F65002CACAA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D68798F917760F65002CACAA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -46,7 +48,11 @@
 		D687990117760F65002CACAA /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
 		D687990317760F65002CACAA /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
 		D687990517760F65002CACAA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D687990617760F65002CACAA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D687990617760F65002CACAA /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		D687990D1776120D002CACAA /* Box.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box.cpp; sourceTree = "<group>"; };
+		D687990E1776120D002CACAA /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box.h; sourceTree = "<group>"; };
+		D6879910177613E8002CACAA /* Vector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+		D687991117762776002CACAA /* Vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,14 +104,18 @@
 			isa = PBXGroup;
 			children = (
 				D68798F217760F65002CACAA /* AppDelegate.h */,
-				D68798F317760F65002CACAA /* AppDelegate.m */,
+				D68798F317760F65002CACAA /* AppDelegate.mm */,
 				D68798FB17760F65002CACAA /* MainStoryboard_iPhone.storyboard */,
 				D68798FE17760F65002CACAA /* MainStoryboard_iPad.storyboard */,
 				D687990117760F65002CACAA /* Shader.fsh */,
 				D687990317760F65002CACAA /* Shader.vsh */,
 				D687990517760F65002CACAA /* ViewController.h */,
-				D687990617760F65002CACAA /* ViewController.m */,
+				D687990617760F65002CACAA /* ViewController.mm */,
 				D68798EA17760F65002CACAA /* Supporting Files */,
+				D687990D1776120D002CACAA /* Box.cpp */,
+				D687990E1776120D002CACAA /* Box.h */,
+				D6879910177613E8002CACAA /* Vector.h */,
+				D687991117762776002CACAA /* Vector.cpp */,
 			);
 			path = Strategies;
 			sourceTree = "<group>";
@@ -194,8 +204,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D68798F017760F65002CACAA /* main.m in Sources */,
-				D68798F417760F65002CACAA /* AppDelegate.m in Sources */,
-				D687990717760F65002CACAA /* ViewController.m in Sources */,
+				D68798F417760F65002CACAA /* AppDelegate.mm in Sources */,
+				D687990717760F65002CACAA /* ViewController.mm in Sources */,
+				D687990F1776120D002CACAA /* Box.cpp in Sources */,
+				D687991217762776002CACAA /* Vector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
