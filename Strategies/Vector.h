@@ -31,6 +31,16 @@ public:
         return temp;
     }
     
+    Vector operator+(const Vector& that) const
+    {
+        Vector temp(
+                    x + that.x,
+                    y + that.y,
+                    z + that.z
+                    );
+        return temp;
+    }
+    
     Vector operator-(const Vector& that)
     {
         Vector temp(

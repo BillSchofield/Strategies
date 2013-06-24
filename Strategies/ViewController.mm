@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "Box1.h"
+#import "Box2.h"
+#import "Box3.h"
+#import "Box4.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
@@ -29,9 +32,21 @@ enum
 };
 
 
-static const Vector startingPoint(-10.0f, 10.0f, -40.0f);
-Box1* box1 = Box1::createLoopingBox(startingPoint, 5.0f);
-Box1* box2 = Box1::createOscilatingBox(startingPoint, 5.0f);
+static const Vector startingPoint1(-10.0f, 10.0f, -40.0f);
+Box1* box1Loop = Box1::createLoopingBox(startingPoint1, 5.0f);
+Box1* box1Osc = Box1::createOscilatingBox(startingPoint1, 5.0f);
+
+static const Vector startingPoint2(10.0f, 10.0f, -40.0f);
+Box2* box2Loop = Box2::createLoopingBox(startingPoint2, 5.0f);
+Box2* box2Osc = Box2::createOscilatingBox(startingPoint2, 5.0f);
+
+static const Vector startingPoint3(-10.0f, -10.0f, -40.0f);
+Box3* box3Loop = Box3::createLoopingBox(startingPoint3, 5.0f);
+Box3* box3Osc = Box3::createOscilatingBox(startingPoint3, 5.0f);
+
+static const Vector startingPoint4(10.0f, -10.0f, -40.0f);
+Box4* box4Loop = Box4::createLoopingBox(startingPoint4, 5.0f);
+Box4* box4Osc = Box4::createOscilatingBox(startingPoint4, 5.0f);
 
 
 
@@ -95,6 +110,12 @@ GLfloat gCubeVertexData[216] =
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) GLKBaseEffect *effect1;
 @property (strong, nonatomic) GLKBaseEffect *effect2;
+@property (strong, nonatomic) GLKBaseEffect *effect3;
+@property (strong, nonatomic) GLKBaseEffect *effect4;
+@property (strong, nonatomic) GLKBaseEffect *effect5;
+@property (strong, nonatomic) GLKBaseEffect *effect6;
+@property (strong, nonatomic) GLKBaseEffect *effect7;
+@property (strong, nonatomic) GLKBaseEffect *effect8;
 
 - (void)setupGL;
 - (void)tearDownGL;
@@ -165,6 +186,30 @@ GLfloat gCubeVertexData[216] =
     self.effect2.light0.enabled = GL_TRUE;
     self.effect2.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
     
+    self.effect3 = [[GLKBaseEffect alloc] init];
+    self.effect3.light0.enabled = GL_TRUE;
+    self.effect3.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
+    
+    self.effect4 = [[GLKBaseEffect alloc] init];
+    self.effect4.light0.enabled = GL_TRUE;
+    self.effect4.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
+    
+    self.effect5 = [[GLKBaseEffect alloc] init];
+    self.effect5.light0.enabled = GL_TRUE;
+    self.effect5.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
+    
+    self.effect6 = [[GLKBaseEffect alloc] init];
+    self.effect6.light0.enabled = GL_TRUE;
+    self.effect6.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
+    
+    self.effect7 = [[GLKBaseEffect alloc] init];
+    self.effect7.light0.enabled = GL_TRUE;
+    self.effect7.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
+    
+    self.effect8 = [[GLKBaseEffect alloc] init];
+    self.effect8.light0.enabled = GL_TRUE;
+    self.effect8.light0.diffuseColor = GLKVector4Make(1.0f, 0.4f, 0.4f, 1.0f);
+    
     glEnable(GL_DEPTH_TEST);
     
     glGenVertexArraysOES(1, &_vertexArray);
@@ -191,6 +236,12 @@ GLfloat gCubeVertexData[216] =
     
     self.effect1 = nil;
     self.effect2 = nil;
+    self.effect3 = nil;
+    self.effect4 = nil;
+    self.effect5 = nil;
+    self.effect6 = nil;
+    self.effect7 = nil;
+    self.effect8 = nil;
     
     if (_program) {
         glDeleteProgram(_program);
@@ -207,13 +258,37 @@ GLfloat gCubeVertexData[216] =
     
     self.effect1.transform.projectionMatrix = projectionMatrix;
     self.effect2.transform.projectionMatrix = projectionMatrix;
+    self.effect3.transform.projectionMatrix = projectionMatrix;
+    self.effect4.transform.projectionMatrix = projectionMatrix;
+    self.effect5.transform.projectionMatrix = projectionMatrix;
+    self.effect6.transform.projectionMatrix = projectionMatrix;
+    self.effect7.transform.projectionMatrix = projectionMatrix;
+    self.effect8.transform.projectionMatrix = projectionMatrix;
     
-    box1->update(self.timeSinceLastUpdate);
-    self.effect1.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box1->currentPosition().x, box1->currentPosition().y, box1->currentPosition().z);
+    box1Loop->update(self.timeSinceLastUpdate);
+    self.effect1.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box1Loop->currentPosition().x, box1Loop->currentPosition().y, box1Loop->currentPosition().z);
 
-    box2->update(self.timeSinceLastUpdate);
-    self.effect2.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box2->currentPosition().x, box2->currentPosition().y, box2->currentPosition().z);
+    box1Osc->update(self.timeSinceLastUpdate);
+    self.effect2.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box1Osc->currentPosition().x, box1Osc->currentPosition().y, box1Osc->currentPosition().z);
 
+    box2Loop->update(self.timeSinceLastUpdate);
+    self.effect3.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box2Loop->currentPosition().x, box2Loop->currentPosition().y, box2Loop->currentPosition().z);
+    
+    box2Osc->update(self.timeSinceLastUpdate);
+    self.effect4.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box2Osc->currentPosition().x, box2Osc->currentPosition().y, box2Osc->currentPosition().z);
+    
+    box3Loop->update(self.timeSinceLastUpdate);
+    self.effect5.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box3Loop->currentPosition().x, box3Loop->currentPosition().y, box3Loop->currentPosition().z);
+    
+    box3Osc->update(self.timeSinceLastUpdate);
+    self.effect6.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box3Osc->currentPosition().x, box3Osc->currentPosition().y, box3Osc->currentPosition().z);
+    
+    box4Loop->update(self.timeSinceLastUpdate);
+    self.effect7.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box4Loop->currentPosition().x, box4Loop->currentPosition().y, box4Loop->currentPosition().z);
+    
+    box4Osc->update(self.timeSinceLastUpdate);
+    self.effect8.transform.modelviewMatrix = GLKMatrix4MakeTranslation(box4Osc->currentPosition().x, box4Osc->currentPosition().y, box4Osc->currentPosition().z);
+    
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
@@ -228,6 +303,24 @@ GLfloat gCubeVertexData[216] =
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     [self.effect2 prepareToDraw];
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    
+    [self.effect3 prepareToDraw];
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    
+    [self.effect4 prepareToDraw];
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    
+    [self.effect5 prepareToDraw];
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    
+    [self.effect6 prepareToDraw];
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    
+    [self.effect7 prepareToDraw];
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    
+    [self.effect8 prepareToDraw];
     glDrawArrays(GL_TRIANGLES, 0, 36);
     
 }
