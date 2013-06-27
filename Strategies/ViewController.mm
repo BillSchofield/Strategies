@@ -10,9 +10,11 @@
 #import "Box1.h"
 #import "Box2.h"
 #import "Box3.h"
+#import "LoopMovementStrategy.h"
+#import "OscillateMovementStrategy.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
-
+#define console_print(format, ...) CFShow([NSString stringWithFormat:format, ## __VA_ARGS__]);
 // Uniform index.
 enum
 {
@@ -209,6 +211,20 @@ GLfloat gCubeVertexData[216] =
     glVertexAttribPointer(GLKVertexAttribNormal, 3, GL_FLOAT, GL_FALSE, 24, BUFFER_OFFSET(12));
     
     glBindVertexArrayOES(0);
+    
+    NSLog(@"Float is %ld bytes\n", sizeof(float));
+    NSLog(@"Vector is %ld bytes\n", sizeof(Vector));
+    NSLog(@"Box1 is %ld bytes\n", sizeof(Box1));
+    NSLog(@"Box2 is %ld bytes\n", sizeof(Box2));
+    NSLog(@"\t*LoopMovementDelegate is %ld bytes\n", sizeof(LoopMovementDelegate));
+    NSLog(@"\t*OscillateMovementDelegate is %ld bytes\n", sizeof(OscillateMovementDelegate));
+    NSLog(@"Box3 is %ld bytes + (%ld bytes -or- %ld bytes)", sizeof(Box3), sizeof(LoopMovementStrategy), sizeof(OscillateMovementStrategy));
+    NSLog(@"\t*LoopMovementStrategy is %ld bytes\n", sizeof(LoopMovementStrategy));
+    NSLog(@"\t*OscillateMovementStrategy is %ld bytes\n", sizeof(OscillateMovementStrategy));
+    
+    NSLog(@"Address of Box3 with looping strategy: <%p>\n", &box3Loop);
+    NSLog(@"Address of looping strategy owned by Box3: <%p>\n", &(box3Loop->movementStrategy));
+
 }
 
 - (void)tearDownGL

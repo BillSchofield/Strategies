@@ -12,8 +12,9 @@ public:
     void update(float deltaTime);
     Vector currentPosition();
 
+    MovementStrategy* movementStrategy;
+
 private:
     Box3(MovementStrategy* movementStrategy);    
 
-    MovementStrategy* movementStrategy;
 };
